@@ -68,10 +68,23 @@ lives with you.
 
 ## Installation
 
-1. Copy the `mynah/` folder (everything except `.git/`) into your Claude
-   skills directory
-2. Restart Claude (or reload skills)
-3. That's it
+### One-liner (Claude Code)
+
+Open Claude Code and prompt:
+
+```
+Install this skill: https://github.com/Percona-Lab/MYNAH
+```
+
+Claude will clone the repo, copy the skill files to `~/.claude/skills/mynah/`,
+and clean up. Done.
+
+### Manual
+
+1. Clone or download this repo
+2. Copy the contents (everything except `.git/`, `README.md`, `LICENSE`) into
+   `~/.claude/skills/mynah/`
+3. Restart Claude (or reload skills)
 
 ## Getting started
 
