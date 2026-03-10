@@ -88,7 +88,7 @@ and clean up. Done.
 
 ## Getting started
 
-### Train it on your writing
+### Quick start: paste samples
 
 > "Learn how I write Slack DMs to developers — here are some examples:"
 > [paste 3–10 messages]
@@ -97,6 +97,46 @@ Claude will extract your style patterns and save them to your memory.
 
 Repeat for each context you care about. You don't need to cover all ten —
 start with the ones you use most.
+
+### Autonomous training (recommended)
+
+If you have messaging, email, calendar, or document tools connected to Claude,
+MYNAH can train itself by pulling your real writing samples directly — no
+copy-pasting needed.
+
+Just prompt:
+
+> "Train MYNAH on my writing using my connected tools. Search the last 3–6
+> months of my messages, emails, calendar invites, and docs. Figure out which
+> conversations are technical vs. business, which emails are internal vs.
+> external, and build profiles for every context you find enough samples for."
+
+Claude will:
+
+1. **Discover your identity** across each connected platform
+2. **Search your messages and documents** from the last few months
+3. **Categorize automatically** — technical DMs vs. business DMs, team
+   channels vs. company-wide, internal emails vs. customer emails, etc.
+   It uses recipient roles, channel names, and conversation content to decide
+4. **Read representative samples** for each context, pulling full message
+   bodies where needed
+5. **Extract style profiles** for every context with enough data (5+ samples)
+6. **Save everything** to your persistent memory in one pass
+
+This works with whatever tools you have connected — messaging apps, email,
+calendar, document platforms. The more connections, the more contexts MYNAH
+can learn. Even with just one or two connected tools, autonomous training
+is faster and more accurate than pasting samples manually.
+
+**Tips for autonomous training:**
+
+- Grant read access to the tools you want MYNAH to learn from
+- 3–6 months of history is the sweet spot — enough to find patterns, not so
+  much that it's noisy
+- After training, review the summary Claude gives you. If a context feels
+  off, paste a few manual corrections and re-learn
+- You can re-run autonomous training any time to refresh profiles as your
+  writing evolves
 
 ### Use it to draft messages
 
