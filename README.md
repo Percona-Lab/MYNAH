@@ -24,10 +24,11 @@ for mountain and alpine themes:
 
 | Tool | Theme | Purpose |
 |------|-------|---------|
-| [IBEX](https://github.com/percona-lab/ibex) | Alpine ibex | Integration Bridge for EXternal Systems — MCP server for connecting AI assistants to workplace tools |
-| [PACK](https://github.com/percona-lab/pack) | Climber's backpack | Portable Agent Context Keeper — persistent memory across AI sessions |
+| [IBEX](https://github.com/Percona-Lab/IBEX) | Alpine ibex | Integration Bridge for EXternal Systems — MCP server for connecting AI assistants to workplace tools |
+| [PACK](https://github.com/Percona-Lab/DK-PACK) | Climber's backpack | Portable Agent Context Keeper — persistent memory across AI sessions |
 | **MYNAH** | Hill mynah | My Natural Authoring Helper — learns and reproduces your writing voice |
-| [Notion Beautifier](https://github.com/Percona-Lab/notion-beautifier) | — | Professional page formatting — like Prettier, but for Notion |
+| [BINER](https://github.com/Percona-Lab/BINER) | Carabiner | Beautiful Intelligent Notion Enhancement & Reformatting — professional page formatting for Notion |
+| [SHERPA](https://github.com/Percona-Lab/SHERPA) | Mountain guide | Stakeholder Hub for Enhancement Request Prioritization & Action |
 
 ## What it does
 
