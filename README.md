@@ -20,12 +20,12 @@ The parallel is intentional: MYNAH doesn't generate generic text. It learns
 faithfully across different communication contexts.
 
 MYNAH is part of a family of open-source tools from Percona Lab, all named
-for alpine species:
+for mountain and alpine themes:
 
-| Tool | Animal | Purpose |
-|------|--------|---------|
+| Tool | Theme | Purpose |
+|------|-------|---------|
 | [IBEX](https://github.com/percona-lab/ibex) | Alpine ibex | Integration Bridge for EXternal Systems — MCP server for connecting AI assistants to workplace tools |
-| [PACK](https://github.com/percona-lab/pack) | Mountain pack animal | Portable Agent Context Keeper — persistent memory across AI sessions |
+| [PACK](https://github.com/percona-lab/pack) | Climber's backpack | Portable Agent Context Keeper — persistent memory across AI sessions |
 | **MYNAH** | Hill mynah | My Natural Authoring Helper — learns and reproduces your writing voice |
 | [Notion Beautifier](https://github.com/Percona-Lab/notion-beautifier) | — | Professional page formatting — like Prettier, but for Notion |
 
