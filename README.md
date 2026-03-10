@@ -157,6 +157,10 @@ mynah/
     └── context-guide.md              # Nuanced per-context composition guidance
 ```
 
+## Built with
+
+100% vibe coded with [Claude](https://claude.ai) (Opus).
+
 ## License
 
 MIT
