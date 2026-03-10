@@ -1,10 +1,10 @@
 # MYNAH — My Natural Authoring Helper
 
-A skill for [Claude](https://claude.ai) that learns how you write and composes
+A plugin for [Claude](https://claude.ai) that learns how you write and composes
 messages in your voice.
 
-> **Platform:** Claude only (Claude.ai, Claude Desktop, Claude Code). MYNAH
-> relies on Claude's skill system and persistent memory tooling. It is not
+> **Platform:** Claude only (Cowork, Claude Code, Claude Desktop). MYNAH
+> relies on Claude's plugin system and persistent memory tooling. It is not
 > currently compatible with other LLMs or AI assistants.
 
 ## Why "MYNAH"?
@@ -27,6 +27,7 @@ for alpine species:
 | [IBEX](https://github.com/percona-lab/ibex) | Alpine ibex | Integration Bridge for EXternal Systems — MCP server for connecting AI assistants to workplace tools |
 | [PACK](https://github.com/percona-lab/pack) | Mountain pack animal | Portable Agent Context Keeper — persistent memory across AI sessions |
 | **MYNAH** | Hill mynah | My Natural Authoring Helper — learns and reproduces your writing voice |
+| [Notion Beautifier](https://github.com/Percona-Lab/notion-beautifier) | — | Professional page formatting — like Prettier, but for Notion |
 
 ## What it does
 
@@ -51,16 +52,16 @@ Supports ten communication contexts out of the box:
 
 ## Privacy by design
 
-**This skill contains zero personal data.**
+**This plugin contains zero personal data.**
 
 Your style profiles are stored in your own persistent memory (via
 [PACK](https://github.com/percona-lab/pack) or equivalent) — not in this
-repo or in the skill itself. The skill is a generic framework; your voice
+repo or in the plugin itself. The plugin is a generic framework; your voice
 lives with you.
 
 ## Prerequisites
 
-- **Claude** with skill support (Claude.ai with computer use, Claude Desktop, or Claude Code)
+- **Claude** with plugin support (Cowork, Claude Code, or Claude Desktop)
 - A **persistent memory tool** ([PACK](https://github.com/percona-lab/pack)
   or equivalent) for storing style profiles across sessions
 - Optionally: **Slack, Gmail, Notion, or Google Drive connectors** for pulling
@@ -68,23 +69,23 @@ lives with you.
 
 ## Installation
 
-### One-liner (Claude Code)
+### One-liner (Claude Code / Cowork)
 
-Open Claude Code and prompt:
+Open Claude Code or Cowork and prompt:
 
 ```
-Install this skill: https://github.com/Percona-Lab/MYNAH
+Install this plugin: https://github.com/Percona-Lab/MYNAH
 ```
 
-Claude will clone the repo, copy the skill files to `~/.claude/skills/mynah/`,
+Claude will clone the repo, copy the plugin files to `~/.claude/plugins/mynah/`,
 and clean up. Done.
 
 ### Manual
 
 1. Clone or download this repo
 2. Copy the contents (everything except `.git/`, `README.md`, `LICENSE`) into
-   `~/.claude/skills/mynah/`
-3. Restart Claude (or reload skills)
+   `~/.claude/plugins/mynah/`
+3. Restart Claude (or reload plugins)
 
 ## Getting started
 
@@ -169,7 +170,7 @@ and stores a compact style profile in your persistent memory.
 profile for that context and drafts the message in your voice, applying your
 actual patterns rather than a generic AI tone.
 
-See `SKILL.md` for the full technical specification.
+See `skills/mynah/SKILL.md` for the full technical specification.
 
 ## Tips
 
@@ -185,16 +186,20 @@ See `SKILL.md` for the full technical specification.
 
 Tell Claude: *"Delete my MYNAH profile for [context] and we'll retrain it"*
 
-## Structure
+## Plugin Structure
 
 ```
 mynah/
-├── SKILL.md                          # Main skill instructions
-└── references/
-    ├── style-dimensions.md           # What to extract during learning
-    ├── profile-schema.md             # Memory storage format
-    ├── sample-collection.md          # Tool-specific sample pulling guidance
-    └── context-guide.md              # Nuanced per-context composition guidance
+├── .claude-plugin/
+│   └── plugin.json                   # Plugin metadata
+└── skills/
+    └── mynah/
+        ├── SKILL.md                  # Main skill instructions
+        └── references/
+            ├── style-dimensions.md   # What to extract during learning
+            ├── profile-schema.md     # Memory storage format
+            ├── sample-collection.md  # Tool-specific sample pulling guidance
+            └── context-guide.md      # Nuanced per-context composition guidance
 ```
 
 ## Built with
