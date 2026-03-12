@@ -104,6 +104,14 @@ Install this plugin: https://github.com/Percona-Lab/MYNAH
 Claude will clone the repo, copy the plugin files to `~/.claude/plugins/mynah/`,
 and clean up. Done.
 
+### ZIP upload (Cowork)
+
+Download `mynah-plugin.zip` from the
+[latest release](https://github.com/Percona-Lab/MYNAH/releases/latest) and
+upload it in Cowork under **Settings > Plugins > Upload**. This also works for
+org-level installation: a team admin can upload the ZIP to make MYNAH available
+to all members on Team or Enterprise plans.
+
 ### Manual
 
 1. Clone or download this repo
