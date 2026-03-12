@@ -35,8 +35,55 @@ reproducing human speech with remarkable fidelity.
 1. **LEARN** — Feed it samples, it extracts style patterns and saves them to memory
 2. **COMPOSE** — Give it a context + intent, it writes in the user's voice
 
-Style profiles are stored in the user's persistent memory (PACK or equivalent)
-under `## MYNAH Profiles`. The skill reads from there at compose time.
+---
+
+## Memory Backend
+
+MYNAH stores style profiles in persistent memory. It supports two backends
+and automatically selects the best available option.
+
+**Detection:** At the start of any LEARN or COMPOSE operation, check which
+memory tools are available.
+
+### Backend 1: PACK (preferred)
+
+If PACK memory tools (`memory_get` / `memory_update`) are available, use them.
+Profiles are stored under `## MYNAH Profiles` in PACK memory. This is the
+recommended setup because profiles are cross-platform (Claude Code, Cowork,
+Cursor, Open WebUI), cross-project, version-controlled via Git, and accessible
+to other tools like BINER.
+
+### Backend 2: Claude Memory (automatic fallback)
+
+If PACK is not available, store profiles as individual files in Claude's
+memory directory. This works out of the box with no extra setup.
+
+**File naming:** `mynah-profile-{context-id}.md`
+(e.g., `mynah-profile-slack-dm-tech.md`, `mynah-profile-email-external-pt.md`)
+
+**File format:**
+```markdown
+---
+name: mynah-profile-{context-id}
+description: MYNAH writing style profile for {context description}
+type: user
+---
+
+### {context-id}
+*Last updated: [date]*
+*Samples used: [n]*
+*Language: [language]*
+
+- **Tone**: ...
+- **Formality**: ...
+[rest of profile using the same schema as PACK]
+```
+
+After writing a profile file, update MEMORY.md with a pointer to it.
+
+**Limitations vs PACK:** Claude memory is per-project in Claude Code and
+per-platform in Cowork. Profiles won't sync across platforms or be accessible
+to other tools. For the full experience, install PACK.
 
 ---
 
@@ -131,16 +178,23 @@ sentence-final particles, punctuation norms that differ from English, and
 greeting/closing conventions specific to that language's business culture.
 
 **Step 4: Save to memory.**
-Read the user's current memory first. Find or create the `## MYNAH Profiles`
+
+Check which memory backend is available (see Memory Backend section above).
+
+**If PACK is available:**
+Read the user's current PACK memory. Find or create the `## MYNAH Profiles`
 section. Add or update the profile for this context using the schema in
-`references/profile-schema.md`.
+`references/profile-schema.md`. Write the complete updated memory back.
+
+**If using Claude memory:**
+Write (or overwrite) the profile to a memory file named
+`mynah-profile-{context-id}.md` using the format shown in the Memory Backend
+section. Update MEMORY.md with a pointer if this is a new profile.
 
 Keep profiles compact. Each profile should be 8–15 lines. Use the required fields
 from the schema; only add optional fields when samples show a clear, distinctive
 pattern worth capturing. A tight profile that nails the voice is better than an
 exhaustive one that dilutes the signal.
-
-Write the complete updated memory back.
 
 **Step 5: Confirm.**
 Tell the user what was captured. Show a brief summary of the key patterns
@@ -176,9 +230,17 @@ Identify which context ID applies using the disambiguation heuristics above.
 If ambiguous, ask — but as a quick choice, not a multi-question interview.
 
 **Step 2: Load the style profile.**
-Read the user's memory. Find `## MYNAH Profiles` → the relevant context.
-If no profile exists for this context, say so and offer to run LEARN mode first,
-or proceed with best-effort defaults and flag it.
+
+Check which memory backend is available (see Memory Backend section above).
+
+**If PACK is available:**
+Read PACK memory. Find `## MYNAH Profiles` → the relevant context.
+
+**If using Claude memory:**
+Read the memory file `mynah-profile-{context-id}.md` for the relevant context.
+
+If no profile exists for this context in either backend, say so and offer to
+run LEARN mode first, or proceed with best-effort defaults and flag it.
 
 Also read the relevant section of `references/context-guide.md` for composition
 guidance specific to this context. The context guide provides tactical advice
@@ -228,7 +290,9 @@ write a paragraph about your own draft.
 
 ## Memory Schema
 
-Profiles are stored in the user's PACK memory like this:
+### PACK format
+
+Profiles are stored in PACK memory like this:
 
 ```markdown
 ## MYNAH Profiles
@@ -261,6 +325,30 @@ For language-variant profiles:
 - **Formality**: [may differ — e.g., uses "você" not "o senhor"]
 - ...
 ```
+
+### Claude memory format
+
+Each profile is a separate file named `mynah-profile-{context-id}.md`:
+
+```markdown
+---
+name: mynah-profile-slack-dm-tech
+description: MYNAH writing style profile for Slack DM technical context
+type: user
+---
+
+### slack-dm-tech
+*Last updated: [date]*
+*Samples used: [n]*
+*Language: [e.g., English]*
+
+- **Tone**: [e.g., casual, direct, collaborative]
+- **Sentence length**: [e.g., short bursts, rarely over 2 lines]
+- **Greeting**: [e.g., no greeting, jumps straight in]
+- ... [same fields as PACK format]
+```
+
+### Profile size guidance
 
 Target 8–15 lines per profile. Only add optional fields (hedging, humor,
 disagreement style, example phrases) when the pattern is distinctive enough
@@ -309,13 +397,17 @@ Never silently overwrite. Always confirm before changing stored patterns.
 
 ## Notes for Shareable Use
 
-This skill contains **no personal style data**. All user-specific content lives
-in their own persistent memory. To use this skill:
+This plugin contains **no personal style data**. All user-specific content lives
+in their own persistent memory. To use this plugin:
 
-1. Install `mynah/` into your skills folder
+1. Install the MYNAH plugin
 2. Run LEARN mode with samples from each context you care about
-3. Profiles are saved to your memory — private to you
+3. Profiles are saved to your memory (PACK if available, Claude memory otherwise)
 4. Use COMPOSE mode any time you need to write in your voice
 
-To reset a profile, ask Claude to delete that context from your MYNAH
-memory and re-train from fresh samples.
+**Recommended:** Install [PACK](https://github.com/Percona-Lab/PACK) for
+cross-platform, cross-project profile access. Without PACK, profiles are
+stored in Claude's built-in memory and limited to the current platform/project.
+
+To reset a profile, ask Claude to delete that context from your memory
+and re-train from fresh samples.

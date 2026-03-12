@@ -80,7 +80,9 @@ Add these when the samples reveal clear patterns:
 
 ## Memory Structure
 
-The full memory block should look like this:
+### PACK format
+
+When using PACK, all profiles live under a single `## MYNAH Profiles` section:
 
 ```markdown
 ## MYNAH Profiles
@@ -100,6 +102,39 @@ The full memory block should look like this:
 ### blog-public
 [profile]
 ```
+
+### Claude Memory format
+
+When PACK is not available, each profile is stored as a separate memory file.
+
+**File naming:** `mynah-profile-{context-id}.md`
+(replace `:` with `-` for language variants, e.g., `mynah-profile-email-external-pt.md`)
+
+**File format:**
+```markdown
+---
+name: mynah-profile-slack-dm-tech
+description: MYNAH writing style profile for Slack DM technical context
+type: user
+---
+
+### slack-dm-tech
+*Last updated: 2025-03-10*
+*Samples used: 12*
+*Language: English*
+
+- **Tone**: casual-collaborative — warm but efficient, treats peers as equals
+- **Formality**: 2 — close to texting but stays focused on work
+- ... [same fields as PACK format]
+```
+
+After creating or updating a profile file, add a pointer to MEMORY.md:
+```markdown
+- [mynah-profile-slack-dm-tech.md](mynah-profile-slack-dm-tech.md) - MYNAH style profile for Slack DM tech context
+```
+
+The profile content (everything below the frontmatter) uses the exact same
+schema as PACK. Only the storage mechanism differs.
 
 ---
 
