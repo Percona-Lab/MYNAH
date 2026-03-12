@@ -25,7 +25,7 @@ for mountain and alpine themes:
 | Tool | Theme | Purpose |
 |------|-------|---------|
 | [IBEX](https://github.com/Percona-Lab/IBEX) | Alpine ibex | Integration Bridge for EXternal Systems. MCP server for connecting AI assistants to workplace tools |
-| [PACK](https://github.com/Percona-Lab/DK-PACK) | Climber's backpack | Portable Agent Context Keeper. Persistent memory across AI sessions |
+| [PACK](https://github.com/Percona-Lab/PACK) | Climber's backpack | Portable Agent Context Keeper. Persistent memory across AI sessions |
 | **MYNAH** | Hill mynah | My Natural Authoring Helper. Learns and reproduces your writing voice |
 | [BINER](https://github.com/Percona-Lab/BINER) | Carabiner | Beautiful Intelligent Notion Enhancement & Reformatting. Like Prettier, but for Notion |
 | [SHERPA](https://github.com/Percona-Lab/SHERPA) | Mountain guide | Stakeholder Hub for Enhancement Request Prioritization & Action |
@@ -56,21 +56,22 @@ Supports ten communication contexts out of the box:
 **This plugin contains zero personal data.**
 
 Your style profiles are stored in your own persistent memory (via
-[PACK](https://github.com/Percona-Lab/DK-PACK) or equivalent), not in this
+[PACK](https://github.com/Percona-Lab/PACK) or equivalent), not in this
 repo or in the plugin itself. The plugin is a generic framework; your voice
 lives with you.
 
 ## Why use PACK?
 
 MYNAH works out of the box using Claude's built-in memory, but installing
-[PACK](https://github.com/Percona-Lab/DK-PACK) unlocks the full experience:
+[PACK](https://github.com/Percona-Lab/PACK) unlocks the full experience:
 
+- **Train once, use everywhere.** Train your writing profiles in Cowork or
+  Claude Code, then use them in Claude Desktop, Cursor, Open WebUI, and any
+  other MCP client connected to PACK. No plugin needed on the other end.
 - **Any Claude interface can use your profiles.** PACK is an MCP server, so
-  even a normal Claude chat session (claude.ai, Claude Desktop) can read your
-  writing style and compose in your voice. Without PACK, profiles are only
-  available inside the platform where you trained them.
-- **Cross-platform.** Train once, use everywhere. Your profiles follow you
-  across Claude Code, Cowork, Cursor, Open WebUI, and any MCP-compatible client.
+  even a plain Claude Desktop chat can read your writing style and compose in
+  your voice. Without PACK, profiles are only available inside the platform
+  where you trained them.
 - **Cross-project.** Claude's built-in memory is scoped per project directory.
   PACK memory is global, so your writing voice is available no matter which
   repo you're working in.
@@ -86,7 +87,7 @@ platforms or be accessible to other tools.
 ## Prerequisites
 
 - **Claude** with plugin support (Cowork, Claude Code, or Claude Desktop)
-- **Recommended:** [PACK](https://github.com/Percona-Lab/DK-PACK) for the benefits
+- **Recommended:** [PACK](https://github.com/Percona-Lab/PACK) for the benefits
   described above
 - Optionally: **Slack, Gmail, Notion, or Google Drive connectors** for pulling
   writing samples directly rather than copy-pasting
