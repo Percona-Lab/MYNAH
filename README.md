@@ -205,6 +205,23 @@ actual patterns rather than a generic AI tone.
 
 See `skills/mynah/SKILL.md` for the full technical specification.
 
+## Imperfection preservation
+
+AI assistants default to "cleaning up" your writing. MYNAH does the opposite.
+If you skip capitalization in Slack DMs, use "thx" and "pls", drop articles,
+or write comma splices when listing ideas quickly, MYNAH will do the same in
+drafts. Imperfections are style signal, not noise.
+
+During LEARN mode, MYNAH distinguishes between consistent patterns (style) and
+one-off typos (noise). Only patterns that appear across multiple samples get
+captured. The result is a draft you can send with minimal editing, because it
+sounds like you wrote it, rough edges and all.
+
+**Disabling it:** If you prefer clean output for a specific context (e.g.,
+external emails or blog posts), set the Imperfections field to `disabled` in
+that profile. MYNAH will use standard spelling and grammar for that context
+while preserving imperfections everywhere else. On by default.
+
 ## Tips
 
 - **More samples = better profiles.** Aim for at least 5–8 per context.
