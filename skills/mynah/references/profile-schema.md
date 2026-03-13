@@ -45,6 +45,9 @@ Add these when the samples reveal clear patterns:
 - **Example phrases**: [2–3 phrases that are distinctly theirs]
 - **Status sensitivity**: [does tone shift with seniority]
 - **Formality markers**: [for non-English: tu/vous, tú/usted, honorific patterns, etc.]
+- **Imperfections**: [characteristic mistakes, shortcuts, or informal patterns that are
+  part of the user's voice — e.g., consistent misspellings, abbreviations, grammar
+  shortcuts, lowercase habits. Set to "disabled" if the user prefers clean output.]
 ```
 
 ---
@@ -72,6 +75,7 @@ Add these when the samples reveal clear patterns:
   - Uses "worth a look?" to float ideas without committing
 - **Avoid**: formal openers ("I hope this finds you well"), over-explaining, exclamation points
 - **Hedging**: moderate — often floats ideas as questions rather than statements
+- **Imperfections**: skips capitalization in DMs; uses "thx" and "pls"; writes "lets" without apostrophe; occasional comma splices when listing ideas quickly
 - **Example openers**: "quick q —", "hey, re: the thing from earlier —", "so this is probably obvious but"
 - **Example phrases**: "makes sense to me", "worth a look?", "could go either way"
 ```

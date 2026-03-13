@@ -272,6 +272,15 @@ a generic Claude voice. Pay particular attention to:
 - Emoji / punctuation habits
 - How they handle hedging, directness, or disagreement
 - Language-specific conventions (formality markers, honorifics, punctuation norms)
+- Imperfection patterns: if the profile includes characteristic mistakes, shortcuts,
+  or informal patterns, reproduce them. Do not correct spelling, grammar, or
+  punctuation habits that are part of the user's voice. A draft that's "too correct"
+  sounds like AI, not like the user. (Skip this if the profile sets Imperfections
+  to "disabled".)
+
+The goal is a draft the user can send with minimal editing. That means matching
+their real voice, including its rough edges. A technically perfect message that
+doesn't sound like them costs more editing time than an imperfect one that does.
 
 **Delivery format:** If the `message_compose_v1` tool is available and the
 output is an email, Slack message, or text message, use it to present the

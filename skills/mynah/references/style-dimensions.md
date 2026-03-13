@@ -138,6 +138,55 @@ This is a high-signal marker. Capture explicitly:
 
 ---
 
+## Imperfection Patterns
+
+Imperfections are style signal, not noise. A user who consistently writes
+"definately" or skips capitalization in Slack DMs should get drafts that do
+the same. Claude's default instinct is to "clean up" writing. MYNAH overrides
+that instinct when the patterns are real.
+
+The key distinction: **consistent patterns = style, one-off typos = noise.**
+Only capture patterns that appear across multiple samples.
+
+### Recurring Misspellings / Unconventional Spellings
+- Spellings that recur across samples (not typos): "definately", "alot",
+  "thru", "gonna", "wanna", "kinda"
+- These are deliberate (or deeply ingrained) choices, not mistakes to fix
+- If a misspelling appears once, ignore it. If it appears 3+ times, it's voice.
+
+### Abbreviations & Shortcuts
+- Common shorthand: "u", "ur", "pls", "thx", "b/c", "w/", "w/o", "rn",
+  "tbh", "imo", "idk", "ngl"
+- Domain-specific abbreviations the user favors
+- Do they abbreviate consistently, or only in certain contexts?
+
+### Grammar Shortcuts
+- Dropped articles ("need to fix bug" vs "need to fix the bug")
+- Missing subjects ("Looks good" vs "It looks good" vs "This looks good")
+- Comma splices when listing ideas quickly
+- Run-on sentences as a pacing choice
+- Sentence fragments used as complete thoughts ("Same.", "Big if true.")
+
+### Lowercase Patterns
+- All lowercase in casual contexts (no sentence-case capitalization)
+- Lowercase "i" (consistent, not occasional)
+- Lowercase proper nouns or product names
+- Note: some of this overlaps with Capitalization in Mechanics. Capture it
+  in whichever section fits best, but don't duplicate.
+
+### Incomplete Sentences & Trailing Thoughts
+- Messages that trail off ("might be worth looking at...")
+- Thoughts left deliberately unfinished
+- Sentence starters without a finish ("But yeah")
+
+### What NOT to Capture
+- One-off typos (misspelling that only appears once)
+- Autocorrect artifacts
+- Copy-paste errors
+- Anything that looks like a genuine accident rather than a habit
+
+---
+
 ## Context-Specific Dimensions
 
 ### For Slack (DMs and channels)
